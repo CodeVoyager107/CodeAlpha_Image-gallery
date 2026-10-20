@@ -130,6 +130,9 @@ function Lightbox({ images, index, onChange, onClose }: LightboxProps) {
     return () => window.removeEventListener("keydown", onKey);
   }, [close, next, prev]);
 
+  // Guard against an out-of-range index (e.g. list changed).
+  if (!img) return null;
+
   const navBtn =
     "absolute top-1/2 -translate-y-1/2 flex h-12 w-12 items-center justify-center rounded-full bg-overlay-foreground/10 text-2xl text-overlay-foreground backdrop-blur transition hover:bg-overlay-foreground/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-overlay-foreground";
 
