@@ -142,3 +142,40 @@
     color: var(--color-foreground);
   }
 }
+
+/* ---- Gallery design tokens ---- */
+:root {
+  --background: oklch(0.975 0.004 80);
+  --foreground: oklch(0.22 0.01 60);
+  --card: oklch(0.995 0.002 80);
+  --primary: oklch(0.25 0.01 60);
+  --primary-foreground: oklch(0.98 0.003 80);
+  --secondary: oklch(0.93 0.006 80);
+  --muted: oklch(0.92 0.006 80);
+  --muted-foreground: oklch(0.5 0.01 60);
+  --border: oklch(0.9 0.006 80);
+  --overlay: oklch(0.12 0.005 60);
+  --overlay-foreground: oklch(0.98 0.003 80);
+  --shadow-soft: 0 4px 16px -6px oklch(0.2 0.01 60 / 0.15);
+  --shadow-lift: 0 18px 40px -12px oklch(0.2 0.01 60 / 0.35);
+}
+@theme inline {
+  --color-overlay: var(--overlay);
+  --color-overlay-foreground: var(--overlay-foreground);
+  --shadow-soft: var(--shadow-soft);
+  --shadow-lift: var(--shadow-lift);
+  --font-display: "Fraunces", Georgia, serif;
+  --font-sans: "DM Sans", system-ui, sans-serif;
+}
+body { font-family: var(--font-sans); }
+
+@keyframes fade-in { from { opacity: 0 } to { opacity: 1 } }
+@keyframes fade-out { from { opacity: 1 } to { opacity: 0 } }
+@keyframes zoom-in { from { opacity: 0; transform: scale(.92) } to { opacity: 1; transform: scale(1) } }
+@keyframes zoom-out { from { opacity: 1; transform: scale(1) } to { opacity: 0; transform: scale(.92) } }
+@keyframes card-in { from { opacity: 0; transform: translateY(12px) scale(.97) } to { opacity: 1; transform: none } }
+@utility animate-fade-in { animation: fade-in .3s ease-out both; }
+@utility animate-fade-out { animation: fade-out .2s ease-in both; }
+@utility animate-zoom-in { animation: zoom-in .3s cubic-bezier(.2,.8,.2,1) both; }
+@utility animate-zoom-out { animation: zoom-out .2s ease-in both; }
+@utility animate-card-in { animation: card-in .45s cubic-bezier(.2,.8,.2,1) both; }
